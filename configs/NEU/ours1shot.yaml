@@ -1,0 +1,42 @@
+# 模型保存在/data/XXX/NEU-DET/0workdirs/01transformer_v1/NEU20221215_135853
+project: 01transformer_update2
+
+dataset: NEU
+# dataroot: /data/XXX/NEU-DET
+dataroot: ./data/NEU
+batch_size_base: 128
+test_batch_size: 128 
+shot: 1
+#----------------------episode---------------
+train_episode: 50
+episode_way: 3
+episode_shot: 5
+episode_query: 40
+#----------------------episode---------------  
+num_workers: 8
+
+base_mode: ft_cos ##########################cos1
+new_mode: avg_cos ##########################cos2
+epochs_base: 20
+lr_base: 0.003 #0.0003,0.001
+decay: 0.0005
+schedule: Cosine 
+
+temperature: 16 ##########################cos3
+
+#------------only for 01transformer_update2-------------
+debug1_relationAdd: True
+debug2_relationMask: True
+#------------only for 01transformer_update2------------- 
+
+test_runs: 100
+gpu: '0,1,2,3'
+pth_workdir: 01transformer_v1
+
+# start_session: 1
+# model_dir: /data/XXX/NEU-DET/0workdirs/01transformer_v1/NEU20221215_135853/session0_average.pth
+ ###################################################
+test_random: False
+# save_data: True
+
+

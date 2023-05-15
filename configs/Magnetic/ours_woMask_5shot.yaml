@@ -1,0 +1,44 @@
+project: 01transformer_update2
+
+dataset: Magnetic
+# dataroot: /data/XXX/Magnetic-Tile-Defect
+dataroot: ./data/Magnetic
+batch_size_base: 128
+test_batch_size: 128 
+shot: 5
+#----------------------episode---------------
+train_episode: 50
+episode_way: 5  ############only for Magnetic
+episode_shot: 5
+episode_query: 25
+#----------------------episode---------------  
+num_workers: 8
+
+base_mode: ft_cos ##########################cos1
+new_mode: avg_cos ##########################cos2
+epochs_base: 40
+lr_base: 0.01
+decay: 0.0005
+schedule: Cosine 
+
+temperature: 16 ##########################cos3
+
+#------------only for 01transformer_update2-------------
+debug3_maskLoss: False
+mask_weight: 0.1
+mask_normalize: True
+
+debug1_relationAdd: True
+debug2_relationMask: True
+#------------only for 01transformer_update2------------- 
+
+test_runs: 100
+gpu: '0,1,2,3'
+pth_workdir: 01transformer_wMask
+
+# start_session: 1
+# model_dir: /data/XXX/Magnetic-Tile-Defect/0workdirs/01transformer_wMask/Magnetic20230410_011623/session0_average.pth
+ ###################################################
+test_random: False
+# save_data: True
+
